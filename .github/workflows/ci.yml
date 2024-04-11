@@ -63,11 +63,23 @@ jobs:
           name: intercept.dll
           path: build/win32/intercept/Release/intercept.dll
 
+      - name: Upload Windows 32 bit lib
+        uses: actions/upload-artifact@v1
+        with:
+          name: intercept_x64.dll
+          path: build/win32/intercept/Release/extensions_static.lib
+
       - name: Upload Windows 64 bit
         uses: actions/upload-artifact@v1
         with:
           name: intercept_x64.dll
           path: build/win64/intercept/Release/intercept_x64.dll
+
+      - name: Upload Windows 64 bit lib
+        uses: actions/upload-artifact@v1
+        with:
+          name: intercept_x64.dll
+          path: build/win64/intercept/Release/extensions_static.lib
 
   package:
     runs-on: ubuntu-20.04
