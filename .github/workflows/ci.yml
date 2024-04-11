@@ -63,11 +63,17 @@ jobs:
           name: intercept.dll
           path: build/win32/intercept/Release/intercept.dll
 
-      - name: Upload Windows 32 bit lib
+      - name: Upload Windows 32 bit client lib
         uses: actions/upload-artifact@v1
         with:
-          name: intercept_x64.dll
-          path: build/win32/intercept/Release/extensions_static.lib
+          name: intercept_client.lib
+          path: build\win32\intercept_client\Release\intercept_client.lib
+
+      - name: Upload Windows 32 bit static lib
+        uses: actions/upload-artifact@v1
+        with:
+          name: intercept_static.lib
+          path: build-win32\src\host\intercept_dll\Release\intercept_static.lib
 
       - name: Upload Windows 64 bit
         uses: actions/upload-artifact@v1
@@ -75,11 +81,17 @@ jobs:
           name: intercept_x64.dll
           path: build/win64/intercept/Release/intercept_x64.dll
 
-      - name: Upload Windows 64 bit lib
+      - name: Upload Windows 64 bit static lib
         uses: actions/upload-artifact@v1
         with:
-          name: intercept_x64.dll
-          path: build/win64/intercept/Release/extensions_static.lib
+          name: intercept_x64_static.lib
+          path: build-win64\src\host\intercept_dll\Release\intercept_x64_static.lib
+
+      - name: Upload Windows 64 bit client lib
+        uses: actions/upload-artifact@v1
+        with:
+          name: intercept_client_x64.lib
+          path: build\win64\intercept_client\Release\intercept_client.lib
           
   package:
     runs-on: ubuntu-20.04
